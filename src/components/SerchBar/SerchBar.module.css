@@ -1,0 +1,31 @@
+.searchContainer{
+    padding: 25px;
+    color: dimgrey;
+    font-size:medium;
+    font-weight: lighter;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.searchButton{
+    border: none;
+    cursor: pointer;
+    font-size: small;
+    font-weight: lighter;
+    height: 28px;
+    width: 120px;
+    align-items: center;
+}
+
+.searchButton:hover{
+    scale: 110%;
+}
+
+.inputStyle{
+    height: 20px;
+    width: 620px;
+    padding: 5px;
+}

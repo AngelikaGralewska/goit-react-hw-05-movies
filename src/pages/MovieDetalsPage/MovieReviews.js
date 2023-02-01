@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getReviews } from 'api/api.';
 import { useParams } from 'react-router-dom';
-//import PropTypes from 'prop-types';
+import style from './MovieDetails.module.css';
 
 export default function MovieReview() {
   const [reviews, setReviews] = useState([]);
@@ -11,7 +11,7 @@ export default function MovieReview() {
     try {
       await getReviews(movieId).then(res => setReviews(res));
     } catch (error) {
-      console.log(error);
+      return;
     }
   };
 
@@ -22,12 +22,12 @@ export default function MovieReview() {
   return (
     <>
       <div>
-        <div>
+        <div className={style.reviewsContainer}>
           {reviews.length ? (
             reviews.map(review => {
               return (
                 <div key={review.id}>
-                  <h3>{review.author}</h3>
+                  <h5>{review.author}</h5>
                   <p>{review.content}</p>
                 </div>
               );

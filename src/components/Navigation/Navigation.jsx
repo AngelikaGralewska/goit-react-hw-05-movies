@@ -8,20 +8,10 @@ export default function Navigation() {
       <>
         <header>
           <nav className={style.navigation}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? style.activeNav : style.navItem
-              }
-              to="/"
-            >
+            <NavLink className={ style.navigationLink}  to="/">
               Home
             </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? style.activeNav : style.navItem
-              }
-              to="movies"
-            >
+            <NavLink className={style.navigationLink } to="movies" >
               Movies
             </NavLink>
           </nav>

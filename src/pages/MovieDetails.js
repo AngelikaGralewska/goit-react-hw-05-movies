@@ -2,18 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, NavLink, useLocation, Outlet} from 'react-router-dom';
 import { getMovieDetails } from 'api/api.';
 import GoBackButton from 'components/GoBackButton/GoBackButton';
-//import { Loader } from 'components/Loader/Loader';
 import style from './Pages.module.css'
 
-
-///const MovieReview = lazy(() =>
- // import('../pages/MovieDetalsPage/MovieReviews' /* webpackChunkName:"MovieReview" */)
-//);
-///const MovieCast = lazy(() =>
- // import('../pages/MovieDetalsPage/MovieCast' /* webpackChunkName:"MovieCastView" */)
-//);
-
-//const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 export default function MovieDetails()  {
   const [movieItem, setMovieItem] = useState(null);
@@ -25,7 +15,7 @@ export default function MovieDetails()  {
     try {
       await getMovieDetails(movieId).then(res => setMovieItem(res));
     } catch (error) {
-      console.log(error);
+      return;
     }
   };
 
@@ -35,50 +25,43 @@ export default function MovieDetails()  {
 
   return (
     <>
+    <GoBackButton location={onGoBack}
+     />
       <div className={style.container}>
-        <GoBackButton location={onGoBack} />
-        <div className={style.details}>
-          <div className={style.movieList}>
+        <div className={style.detailsContainer}>
+          <div>
             <img
               src={`https://image.tmdb.org/t/p/w300${movieItem?.poster_path}`}
               alt={movieItem?.title}
+              className={style.detailsImage}
+
             />
           </div>
-          <div className={style.movieInfo}>
-            <h2 className={style.movieTitle}>{movieItem?.title}</h2>
-            <p>User Score: {Math.round(movieItem?.vote_average) * 10}%</p>
+          <div>
+            <h1 className={style.movieTitle}>{movieItem?.title}</h1>
+            <p>User Score: {movieItem?.vote_average} / 10</p>
             <div className={style.overview}>
-              <h3>Overview</h3>
+              <h4>Overview:</h4>
               <p>{movieItem?.overview}</p>
             </div>
-            <div className={style.genreContainer}>
-              <h3>Genres</h3>
+            <div>
+              <h4>Genres:</h4>
               {movieItem?.genres.map(gen => {
                 return (
-                  <p key={gen.id} className={style.genresItem}>
+                  <li key={gen.id} className={style.genresItem}>
                     {gen.name}
-                  </p>
+                  </li>
                 );
               })}
             </div>
           </div>
         </div>
       </div>
-      <div className={style.btnContainer}>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? style.activeBtn : style.btnItem
-          }
-          to="cast"
-        >
+      <div className={style.buttonContainer}>
+        <NavLink className={style.button} to="cast" >
           Cast
         </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? style.activeBtn : style.btnItem
-          }
-          to="reviews"
-        >
+        <NavLink className={style.button} to="reviews">
           Reviews
         </NavLink>
       </div>

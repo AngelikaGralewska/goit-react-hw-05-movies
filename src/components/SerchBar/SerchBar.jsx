@@ -24,14 +24,14 @@ export default function SearchBar({ onChangeQuery }) {
         className={style.searchContainer}
         onSubmit={handleSubmit}
       >
-        <p className={style.searchTitle}>Enter you're movie name</p>
+        <p>Enter you're movie name</p>
         <input
           type="text"
           className={style.inputStyle}
           value={search}
           onChange={handleInputChange}
         />
-        <button className={style.searchBtn} type="submit">
+        <button className={style.searchButton} type="submit">
           Search
         </button>
       </form>

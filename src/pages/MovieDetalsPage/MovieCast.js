@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'api/api.';
+import style from './MovieDetails.module.css';
 
 export default function MovieCast() {
-  const [cast, setCast] = useState([]);
+  const [casts, setCasts] = useState([]);
   const { movieId } = useParams();
 
   const getCast = async movieId => {
     try {
-      await getMovieCast(movieId).then(res => setCast(res));
+      await getMovieCast(movieId).then(res => setCasts(res));
     } catch (error) {
         return;
     }
@@ -20,20 +21,17 @@ export default function MovieCast() {
 
   return (
     <>
-      <div >
-        {
-         cast.map(actor => {
+      <div className={style.castContainer}>
+        {casts.map(actor => {
               return (
-                <div key={actor.id}>
-                  <p>{actor.original_name}</p>
+                <div key={actor.id}
+                className={style.actotCard}>
                   <img
-                    src={
-                      actor.profile_path
-                        ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
-                        : `https://image.tmdb.org/t/p/w300/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg`
-                    }
+                    src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
                     alt={actor.original_name}
+                    className={style.actorImage}
                   />
+                  <h5>{actor.original_name}</h5>
                   <p>
                     Character: <br />
                     {actor.character}
@@ -41,7 +39,6 @@ export default function MovieCast() {
                 </div>
               );
             })
-          //: "We don't have information about actors"
         }
       </div>
     </>

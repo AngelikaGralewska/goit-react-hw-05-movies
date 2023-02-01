@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchTrendingMovies } from 'api/api.';
+import style from './Pages.module.css'
 
 
 export default function Home() {
@@ -23,17 +24,19 @@ export default function Home() {
     return (
       <>
           <div >
-        <div >
+        <div className={style.container}>
           {movies.map(movie => {
             return (
               <Link
                 to={`/movies/${movie.id}`}
                 state={{ location }}
                 key={movie.id}
+                className={style.movieItem}
               >
                 <img
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path} `}
                   alt={movie.title}
+                  className={style.image}
                 />
                 <p>
                   {movie.title ? movie.title : ' No information'}

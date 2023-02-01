@@ -40,8 +40,8 @@ export default function Movies() {
   return (
     <>
       <SearchBar onChangeQuery={onQueryChange} />
-      <div className={style.container}>
-        <div className={style.list}>
+      <div>
+        <div className={style.container}>
           {moviesList.map(movie => {
             return (
               <Link
@@ -53,8 +53,9 @@ export default function Movies() {
                 <img
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path} `}
                   alt={movie.title}
+                  className={style.image}
                 />
-                <p className={style.movieTitle}>
+                <p>
                   {movie.title ? movie.title : ' No information'}
                 </p>
               </Link>

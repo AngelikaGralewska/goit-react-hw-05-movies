@@ -5,8 +5,8 @@ import style from './GoBackButton.module.css';
 export default function GoBackButton({ location }) {
   return (
     <>
-      <NavLink className={style.backButton} to={location}>
-        Back
+      <NavLink className={style.goBackButton} to={location}>
+       Go Back 
       </NavLink>
     </>
   );

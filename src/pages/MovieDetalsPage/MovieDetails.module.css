@@ -1,0 +1,31 @@
+.reviewsContainer{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: dimgrey;
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+.castContainer{
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    color: dimgrey;
+    font-weight: lighter;
+    font-size: small;
+    text-decoration: none;
+}
+
+.actorImage{
+    width: 200px;
+    height: 300px;
+}
+
+.actotCard{
+    width: 200px;
+    margin-bottom: 15px;
+}

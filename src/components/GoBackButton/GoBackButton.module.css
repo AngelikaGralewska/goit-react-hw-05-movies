@@ -1,0 +1,13 @@
+.goBackButton{
+    color: dimgrey;
+    cursor: pointer;
+    font-size:large;
+    font-weight: lighter;
+    padding: 25px;
+    text-decoration: none;
+}
+
+.goBackButton:hover{
+    scale: 115%;
+    color: rgb(110, 73, 73);
+}

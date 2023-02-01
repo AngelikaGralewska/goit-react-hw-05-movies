@@ -1,0 +1,23 @@
+.navigation{
+    display: inline-flex;
+    gap: 20px;
+    padding: 25px;
+}
+
+.navigationLink{
+    color: dimgrey;
+    cursor: pointer;
+    font-size:x-large;
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+.navigationLink:hover{
+    scale: 115%;
+    color: rgb(110, 73, 73);
+
+}
+
+
+
+
