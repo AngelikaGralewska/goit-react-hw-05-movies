@@ -8,7 +8,7 @@ export default function Loader() {
       radius={1}
       color="#696969"
       ariaLabel="puff-loading"
-      //visible={true}
+      visible={true}
       wrapperStyle={{
           position: 'fixed',
           top: '50%',
