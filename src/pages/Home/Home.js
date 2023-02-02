@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { fetchTrendingMovies } from 'api/api.';
-import style from './Pages.module.css'
+import { fetchTrendingMovies } from 'api/api';
+import style from '../Pages.module.css';
 
 
-export default function Home() {
+const Home = () => {
     const location = useLocation();
     const [movies, setMovies] = useState([]);
   
@@ -49,3 +49,5 @@ export default function Home() {
       </>
     );
   };
+
+  export default Home;

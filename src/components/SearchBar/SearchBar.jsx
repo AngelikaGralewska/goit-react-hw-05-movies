@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import style from './SerchBar.module.css';
+import style from './SearchBar.module.css';
 
-export default function SearchBar({ onChangeQuery }) {
+export const SearchBar = ({ onChangeQuery }) => {
   const [search, setSearch] = useState('');
 
   const handleSubmit = event => {

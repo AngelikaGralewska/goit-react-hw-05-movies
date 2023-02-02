@@ -1,6 +1,6 @@
 import { PuffLoader } from "react-spinners";
 
-export default function Loader() {
+ const Loader = () => {
     return(
     <PuffLoader
       height="150"
@@ -19,3 +19,5 @@ export default function Loader() {
         }}
     />
   )}
+
+  export default Loader;

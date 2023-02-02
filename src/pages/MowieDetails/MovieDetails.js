@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, NavLink, useLocation, Outlet} from 'react-router-dom';
-import { getMovieDetails } from 'api/api.';
-import GoBackButton from 'components/GoBackButton/GoBackButton';
-import style from './Pages.module.css'
+import { getMovieDetails } from 'api/api';
+import {GoBackButton} from 'components/GoBackButton/GoBackButton';
+import style from '../Pages.module.css';
 
 
-export default function MovieDetails()  {
+const MovieDetails = () => {
   const [movieItem, setMovieItem] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
@@ -34,7 +34,6 @@ export default function MovieDetails()  {
               src={`https://image.tmdb.org/t/p/w300${movieItem?.poster_path}`}
               alt={movieItem?.title}
               className={style.detailsImage}
-
             />
           </div>
           <div>
@@ -71,3 +70,5 @@ export default function MovieDetails()  {
     </>
   );
 }
+
+export default MovieDetails;

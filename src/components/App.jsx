@@ -2,21 +2,18 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from 'react';
 
 import Loader from "./Loader/Loader";
-import Navigation from "./Navigation/Navigation";
+import {Navigation} from "./Navigation/Navigation";
 
-
-
-const Home = lazy(() => import('../pages/Home'));
-const Movies = lazy(() => import('../pages/Movies'));
-const MovieDetails = lazy(() => import('../pages/MovieDetails'));
-const MovieCast = lazy(() => import('../pages/MovieDetalsPage/MovieCast'));
-const MovieReviews = lazy(() => import('../pages/MovieDetalsPage/MovieReviews'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('../pages/MowieDetails/MovieDetails'));
+const MovieCast = lazy(() => import('../pages/MowieDetails/MovieDetalsPages/MovieCast'));
+const MovieReviews = lazy(() => import('../pages/MowieDetails/MovieDetalsPages/MovieReviews'));
 
 export function App() {
-
   return (
     <>
-      <Suspense fallback={Loader()}>
+      <Suspense fallback={<Loader/>}>
       <Navigation />
         <Routes>
             <Route path="/" element={<Home />} />
@@ -29,6 +26,5 @@ export function App() {
         </Routes>
       </Suspense>
     </>
-    
   );
 };

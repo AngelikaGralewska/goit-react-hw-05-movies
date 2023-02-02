@@ -9,22 +9,22 @@ export const searchMovies = async movie => {
     return data.results;
   };
   
-  export const getMovieDetails = async movieId => {
+export const getMovieDetails = async movieId => {
     const { data } = await axios.get(`movie/${movieId}$?api_key=${API_KEY}&language=en-US`);
     return data;
   };
   
-  export const fetchTrendingMovies = async () => {
+export const fetchTrendingMovies = async () => {
     const { data } = await axios.get(`trending/movie/day?api_key=${API_KEY}`);
     return data.results;
   };
   
-  export const getMovieCast = async movieId => {
+export const getMovieCast = async movieId => {
     const { data } = await axios.get(`movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
     return data.cast;
   };
   
-  export const getReviews = async movieId => {
+export const getReviews = async movieId => {
     const { data } = await axios.get(`movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
     return data.results;
   };

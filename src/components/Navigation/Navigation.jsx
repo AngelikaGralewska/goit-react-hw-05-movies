@@ -3,7 +3,7 @@ import { NavLink, Outlet} from "react-router-dom";
 import style from './Navigation.module.css';
 
 
-export default function Navigation() {
+export const Navigation = () => {
     return (
       <>
         <header>

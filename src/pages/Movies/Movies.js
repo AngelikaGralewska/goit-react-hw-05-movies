@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { searchMovies } from 'api/api.';
-import SearchBar from 'components/SerchBar/SerchBar';
-import style from './Pages.module.css'
+import { searchMovies } from 'api/api';
+import {SearchBar} from 'components/SearchBar/SearchBar';
+import style from '../Pages.module.css'
 
-export default function Movies() {
+const Movies = () => {
   const [movieToFind, setMovieToFind] = useSearchParams('');
   const [moviesList, setMoviesList] = useState([]);
 
@@ -62,7 +62,9 @@ export default function Movies() {
             );
           })}
         </div>
-      </div>
+        </div>
     </>
   );
 }
+
+export default Movies;

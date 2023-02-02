@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieCast } from 'api/api.';
-import style from './MovieDetails.module.css';
+import { getMovieCast } from 'api/api';
+import style from './MovieDetailsPages.module.css';
 
-export default function MovieCast() {
+const MovieCast = () => {
   const [casts, setCasts] = useState([]);
   const { movieId } = useParams();
 
@@ -44,3 +44,5 @@ export default function MovieCast() {
     </>
   );
 }
+
+export default MovieCast;
